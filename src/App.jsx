@@ -26,7 +26,7 @@ export default function App() {
   );
   const [day, dispatchDate] = useReducer(dateReducer, initialDate);
   const [tasks, dispatchTasks] = useReducer(tasksReducer, initialTasks);
-  
+
   return (
     <div className="app">
       <CategoriesContext.Provider value={{ categories, dispatchCategories }}>

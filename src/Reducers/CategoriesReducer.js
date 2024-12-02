@@ -7,18 +7,20 @@ export const colors = [
   "#4d79ff",
   "#2852cd",
   "#ac791b",
-];
+]; // background colors for indicating the category for each task.
 
+// while creating a new category, we assign a random color for that category
 function getRandomColor() {
   const randomIndex = Math.floor(Math.random() * colors.length);
   return colors[randomIndex];
 }
 
+// categoryEntries contains a list of all the possible categories in taskList
 const categoryEntries = Array.from(
   new Set(initialTasks.taskList.map((t) => t.category))
 ).map((c, i) => ({
   category: c,
-  color: colors[i] || getRandomColor(),
+  color: colors[i] || getRandomColor(), // assign a random color
   id: crypto.randomUUID(),
 }));
 

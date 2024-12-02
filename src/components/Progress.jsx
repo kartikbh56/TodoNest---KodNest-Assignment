@@ -9,6 +9,8 @@ export default function Progress() {
     tasks: { taskList },
   } = useContext(TasksContext);
 
+  console.log(taskList)
+
   // we need currentDate (currently selected date) to calculate the progress of tasks on that particular date
   const {
     day: { currentDate },
@@ -31,7 +33,7 @@ export default function Progress() {
 
   // filtering out all the tasks on the selected date.
   const totalTasksOnSelectedDay = taskList.filter(
-    (t) => t.createdAt.toDateString() === currentDate.toDateString()
+    (t) => new Date(t.createdAt).toDateString() === new Date(currentDate).toDateString()
   );
 
   // total number of tasks on the selected date

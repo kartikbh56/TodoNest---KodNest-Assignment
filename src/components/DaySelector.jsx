@@ -9,7 +9,7 @@ function DaySelector() {
   } = useContext(DateContext);
 
   // destructure dayString, monthString, date, and year returned from currentDate.toDateString()
-  const [dayStr, monthStr, date, year] = currentDate.toDateString().split(" "); // "Thu Nov 28 2024" ->  ["Thu", "Nov", "28", "2024"]
+  const [dayStr, monthStr, date, year] = new Date(currentDate).toDateString().split(" "); // "Thu Nov 28 2024" ->  ["Thu", "Nov", "28", "2024"]
 
   const handleNextDayClick = () => dispatchDate({ type: "nextDay" }); // jump to next day
   const handlePreviousDayClick = () => dispatchDate({ type: "previousDay" }); // jump to previous day

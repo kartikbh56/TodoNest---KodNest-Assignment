@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { useContext } from "react";
 import { DateContext, TasksContext, CategoriesContext } from "./context";
 
@@ -37,11 +35,11 @@ export default function TodoKanbanBoard() {
     // if a category is selected, then filter out tasks based on the currently selected date and currently selected category
     if (selectedCategory)
       return (
-        t.createdAt.toDateString() === currentDate.toDateString() &&
+        new Date(t.createdAt).toDateString() === new Date(currentDate).toDateString() &&
         t.category === categorySelected
       );
     // if category is not selected (which means "all" tab is active) filter out tasks only based on the current selected date
-    return t.createdAt.toDateString() === currentDate.toDateString();
+    return new Date(t.createdAt).toDateString() === new Date(currentDate).toDateString();
   });
 
   // tasks which have status === "Not Started" will be in "Not Started" column of Kanban board
@@ -75,11 +73,3 @@ export default function TodoKanbanBoard() {
     </div>
   );
 }
-
-
-
-
-
-
-
-

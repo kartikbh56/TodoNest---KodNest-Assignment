@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useContext, useState } from "react";
 import { CategoriesContext, TasksContext } from "./context";
 import Category from "./Category.jsx";

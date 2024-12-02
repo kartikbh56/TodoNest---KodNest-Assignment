@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Task from "./Task";
 import AddTask from "./AddTask"
-export default function KanbanColumn({ column }) {
+export default function KanbanColumn({ column }) { // columns : Not Started, In progress, Done
   const { type, color, tasks } = column;
   return (
     <div className="column">

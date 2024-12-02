@@ -19,7 +19,7 @@ export default function EditTaskmenu({
     // You need to convert createdAt to a string in the required format (YYYY-MM-DD) before setting it as the value of the input[type="date"].
     // createdAt.toISOString(): This converts the Date object to a string in the format YYYY-MM-DDTHH:mm:ss.sssZ.
     // .split('T')[0]: Splits the ISO string at the T and takes the first part, which is the date in the required format YYYY-MM-DD.
-    const formattedDate = createdAt.toISOString().split("T")[0];
+    const formattedDate = new Date(createdAt).toISOString().split("T")[0];
     const [day, setDay] = useState(formattedDate);
   
     const buttons = {
