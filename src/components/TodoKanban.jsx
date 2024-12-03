@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { DateContext, TasksContext, CategoriesContext } from "./context";
 
-import KanbanColumn from "./KanbanColumn"
+import KanbanColumn from "./KanbanColumn";
+import { DndContext } from "@dnd-kit/core";
 
 /* A To-Do List Kanban Board is a visual project management tool 
 designed to organize tasks into categories based on their progress.
@@ -13,6 +14,7 @@ export default function TodoKanbanBoard() {
   // retrieve taskList (an array inside the tasks object) from TasksContext to display tasks
   const {
     tasks: { taskList },
+    dispatchTasks,
   } = useContext(TasksContext);
 
   // retrieve currentDate object from DateContext
@@ -35,11 +37,15 @@ export default function TodoKanbanBoard() {
     // if a category is selected, then filter out tasks based on the currently selected date and currently selected category
     if (selectedCategory)
       return (
-        new Date(t.createdAt).toDateString() === new Date(currentDate).toDateString() &&
+        new Date(t.createdAt).toDateString() ===
+          new Date(currentDate).toDateString() &&
         t.category === categorySelected
       );
     // if category is not selected (which means "all" tab is active) filter out tasks only based on the current selected date
-    return new Date(t.createdAt).toDateString() === new Date(currentDate).toDateString();
+    return (
+      new Date(t.createdAt).toDateString() ===
+      new Date(currentDate).toDateString()
+    );
   });
 
   // tasks which have status === "Not Started" will be in "Not Started" column of Kanban board
@@ -64,12 +70,27 @@ export default function TodoKanbanBoard() {
     { type: "Done", color: "green", tasks: tasksDone },
   ];
 
+  function handleDragEnd(event) {
+    const { active, over } = event;
+    if (!over) return;
+    const taskId = active.id;
+    const newStatus = over.id;
+
+    const newTasks = taskList.map((task) =>
+      task.id === taskId ? { ...task, status: newStatus } : task
+    );
+
+    dispatchTasks({type:"updateTaskList", newTasks:newTasks})
+  }
+
   // 3 columns (Not Started,In Progress, Done) with their repsective data passed through "column" prop
   return (
     <div className="kanban-board">
-      {columns.map((column) => (
-        <KanbanColumn key={column.type} column={column} />
-      ))}
+      <DndContext onDragEnd={handleDragEnd}>
+        {columns.map((column) => (
+          <KanbanColumn key={column.type} column={column} />
+        ))}
+      </DndContext>
     </div>
   );
 }

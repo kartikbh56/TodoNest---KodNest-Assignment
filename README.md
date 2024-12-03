@@ -30,6 +30,9 @@ TodoNest is a feature-rich, modern to-do list application designed to help users
 - Hover interactions to reveal quick edit and delete options for tasks.
 - Clean, responsive design built with CSS for an engaging user experience.
 
+### 6. Drag and Drop Task Management 
+Easily move task cards between columns on the Kanban board ("Not started," "In progress," "Done") to update their status. This intuitive feature allows for seamless task organization and progress tracking.
+ 
 ## Tech Stack
 
 ### Frontend
@@ -50,12 +53,7 @@ Each task card includes task content and its category.
 
 ![Task Manager Snapshot](Snapshots/kanban%20board.png)
 
-### 2. Edit Task Menu
-Edit task name, category, date, and status (Not Started, In Progress, Done). Save changes or close the window.
-
-![Edit Task Menu](Snapshots/edit%20task.png)
-
-### 4. Navbar
+### 2. Navbar
 - Logo
 - Date selector
 - Overall task completion progress bar
@@ -63,7 +61,7 @@ Edit task name, category, date, and status (Not Started, In Progress, Done). Sav
 
 ![Navbar Snapshot](Snapshots/navbar.png)
 
-### 5. Task Card
+### 3. Task Card
 Each task is represented by a card showing:
 - Task name
 - Category tag
@@ -71,21 +69,27 @@ Hovering reveals edit (pencil) and delete (bin) icons.
 
 ![Task Card Snapshot](Snapshots/task.png)
 
-### 1. Manage Categories
+### 4. Edit Task Menu
+Edit task name, category, date, and status (Not Started, In Progress, Done). Save changes or close the window.
+
+![Edit Task Menu](Snapshots/edit%20task.png)
+
+### 5. Drag and Drop task cards
+Easily move task cards between columns on the Kanban board ("Not started," "In progress," "Done") to update their status. This intuitive feature allows for seamless task organization and progress tracking.
+
+<video src="Snapshots\drag_n_drop.mp4" width="640" height="360" controls>
+  Your browser does not support the video tag.
+</video>
+
+### 6. Manage Categories
 A modal window to create and delete task categories.
 
 ![Manage Categories Snapshot](Snapshots/category.png)
 
-## Live Demo
 
+## Live Demo
 Check out the deployed application: [TodoNest](https://todonest-kodnest-assignment.vercel.app/)
 
-
-## Future Enhancements
-- Add drag-and-drop functionality for task cards in the Kanban board.
-- Integrate a backend for multi-user support.
-- Add due date reminders and notifications.
-- Implement dark mode for the UI.
 
 ## Acknowledgements
 Special thanks to [KodNest](https://www.kodnest.com/) for inspiring this project and providing the requirements.

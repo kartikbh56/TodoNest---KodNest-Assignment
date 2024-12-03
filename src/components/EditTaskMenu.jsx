@@ -61,15 +61,16 @@ export default function EditTaskmenu({
     // when you click on save
     function handleSave() {
       setEditTaskMenu(false); // close the edit window
-      const modifiedTask = {
-        ...taskToBeModified,
-        task: task,
-        createdAt: new Date(day),
-        category: cat,
-      }; // modified task will have the values updated in local states
-  
-      dispatchTasks({ type: "modifyTask", id: id, modifiedTask: modifiedTask }); // taskList is updated with the target task modified
-  
+      if(task.trim()){
+        const modifiedTask = {
+          ...taskToBeModified,
+          task: task,
+          createdAt: new Date(day),
+          category: cat,
+        }; // modified task will have the values updated in local states 
+        dispatchTasks({ type: "modifyTask", id: id, modifiedTask: modifiedTask }); // taskList is updated with the target task modified
+      }
+      
       // update the category list if there is a new category which does not exist in categoryList. also make sure the local state cat is non empty
       if (!categoryList.map((c) => c.category).includes(cat) && cat)
         dispatchCategories({ type: "updateCategoryList", newCat: cat });

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 body {
-    background-color: #fffbe1;
+    background-color: #fffdec;
     font-family: 'Varela round';
     margin: 0;
     background-repeat: repeat;
@@ -23,7 +23,7 @@ button {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     background-color: #ffe562;
     color: rgb(35, 35, 35);
     border-bottom: 2px solid rgb(42, 42, 42);
@@ -111,7 +111,7 @@ button {
     margin: 5px;
     border-radius: 8px;
     min-width: 60px;
-    background-color: #e74949;
+    background-color: #fa5f5f;
     color: white;
     display: inline-block;
     box-shadow: 2px 2px 5px rgba(255, 26, 26, 0.1);
@@ -139,7 +139,7 @@ button {
 }
 
 .tab {
-    background-color: #2e2e2e;
+    background-color: #2b3035;
     font-family: 'Varela Round';
     color: #ffffff;
     border: none;
@@ -154,13 +154,13 @@ button {
 }
 
 .tab:hover {
-    background-color: #000000;
+    background-color: #343a40;
     color: rgb(255, 255, 255);
     transition: all 0.2s ease;
 }
 
 .tab.active {
-    background-color: #e74949;
+    background-color: #fa5252;
 }
 
 .manage-categories {
@@ -693,4 +693,8 @@ input[type="text"] {
         font-size: 0.7rem;
         /* Adjust text size for mobile */
     }
+}
+
+.draggable{
+    cursor: grab;
 }

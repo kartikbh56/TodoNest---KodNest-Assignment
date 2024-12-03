@@ -59,5 +59,15 @@ export function tasksReducer(tasks, action) {
         taskList: newTasks,
       };
     }
+    
+    case "updateTaskList":{
+      const newTasks = action.newTasks
+      localStorage.setItem("taskList", JSON.stringify(newTasks));
+      return {
+        ...tasks,
+        taskList: newTasks,
+      };
+    }
+
   }
 }
